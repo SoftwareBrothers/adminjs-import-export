@@ -52,6 +52,7 @@
     "@types/mongoose": "^5.7.37",
     "file-saver": "^2.0.2",
     "json2csv": "^5.0.3",
-    "mongoose": "^5.10.11"
+    "mongoose": "^5.10.11",
+    "xml": "^1.0.1"
   }
 }

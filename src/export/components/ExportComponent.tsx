@@ -8,6 +8,7 @@ import { Parsers, ParserType } from '../parsers/parser.type';
 const mimeTypes: Record<ParserType, string> = {
   json: 'application/json',
   csv: 'text/csv',
+  xml: 'text/xml',
 };
 
 const getFileName = extension =>
