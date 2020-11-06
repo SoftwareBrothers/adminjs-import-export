@@ -1,5 +1,5 @@
 import { BaseRecord } from 'admin-bro';
 
-export const jsonExportParser = (records: BaseRecord[]): string => {
+export const jsonExporter = (records: BaseRecord[]): string => {
   return JSON.stringify(records.map(r => r.params));
 };

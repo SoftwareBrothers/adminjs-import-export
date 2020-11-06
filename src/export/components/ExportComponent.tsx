@@ -3,9 +3,9 @@ import { ActionProps, ApiClient, useNotice } from 'admin-bro';
 import { Box, Button, Loader, Text } from '@admin-bro/design-system';
 import { saveAs } from 'file-saver';
 import format from 'date-fns/format';
-import { Parsers, ParserType } from '../parsers/parser.type';
+import { Exporters, ExporterType } from '../parsers/exporter.type';
 
-const mimeTypes: Record<ParserType, string> = {
+const mimeTypes: Record<ExporterType, string> = {
   json: 'application/json',
   csv: 'text/csv',
   xml: 'text/xml',
@@ -18,11 +18,7 @@ const ExportComponent: FC<ActionProps> = ({ resource }) => {
   const [isFetching, setFetching] = useState<boolean>();
   const sendNotice = useNotice();
 
-  if (isFetching) {
-    return <Loader />;
-  }
-
-  const exportData = async (type: ParserType) => {
+  const exportData = async (type: ExporterType) => {
     setFetching(true);
     try {
       const {
@@ -51,7 +47,7 @@ const ExportComponent: FC<ActionProps> = ({ resource }) => {
         <Text variant="lg">Choose export format:</Text>
       </Box>
       <Box display="flex" justifyContent="center">
-        {Parsers.map(parserType => (
+        {Exporters.map(parserType => (
           <Box key={parserType} m={2}>
             <Button
               onClick={() => exportData(parserType)}

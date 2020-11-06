@@ -1,8 +1,15 @@
-import { buildFeature, FeatureType, Filter } from 'admin-bro';
-import { Parsers } from './export/parsers/export.parser';
-import { bundleComponents } from './export/components/bundleComponents';
+import { ValidationError, buildFeature, FeatureType, Filter } from 'admin-bro';
+import { bundleExportComponents } from './export/components/bundleExportComponents';
+import { Parsers } from './parsers';
+import { bundleImportComponents } from './import/components/bundleImportComponents';
+import fs from 'fs';
+import util from 'util';
+import { jsonImporter } from './import/parsers/json.importer';
 
-const { EXPORT_COMPONENT } = bundleComponents();
+const readFile = util.promisify(fs.readFile);
+
+const { EXPORT_COMPONENT } = bundleExportComponents();
+const { IMPORT_COMPONENT } = bundleImportComponents();
 
 const feature = (): FeatureType => {
   return buildFeature({
@@ -10,7 +17,7 @@ const feature = (): FeatureType => {
       export: {
         handler: async (request, response, context) => {
           if (request.method === 'post') {
-            const parser = Parsers[request.query?.type ?? 'json'];
+            const parser = Parsers[request.query?.type ?? 'json'].export;
             const records = await context.resource.find(
               new Filter({}, context.resource),
               {
@@ -28,7 +35,25 @@ const feature = (): FeatureType => {
         component: EXPORT_COMPONENT,
         actionType: 'resource',
       },
-      import: {},
+      import: {
+        handler: async (request, response, context) => {
+          if (request.method === 'post') {
+            const filePath = request.payload?.file.path;
+
+            if (!filePath) {
+              throw new ValidationError({
+                file: { message: 'No file uploaded' },
+              });
+            }
+
+            const file = await readFile(filePath);
+            await jsonImporter(file.toString(), context.resource);
+          }
+          return {};
+        },
+        component: IMPORT_COMPONENT,
+        actionType: 'resource',
+      },
     },
   });
 };

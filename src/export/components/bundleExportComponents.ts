@@ -1,6 +1,6 @@
 import AdminBro from 'admin-bro';
 
-export const bundleComponents = () => {
+export const bundleExportComponents = (): { EXPORT_COMPONENT: string } => {
   const EXPORT_COMPONENT = AdminBro.bundle(
     '../../../src/export/components/ExportComponent'
   );
