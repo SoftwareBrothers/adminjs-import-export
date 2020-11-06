@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import { ActionProps, ApiClient, useNotice } from 'admin-bro';
-import { Box, Button, Loader } from '@admin-bro/design-system';
+import { Box, Button, Loader, Text } from '@admin-bro/design-system';
 import { saveAs } from 'file-saver';
 import format from 'date-fns/format';
 import { Parsers, ParserType } from '../parsers/parser.type';
@@ -47,15 +47,21 @@ const ExportComponent: FC<ActionProps> = ({ resource }) => {
 
   return (
     <Box>
-      {Parsers.map(parserType => (
-        <Button
-          onClick={() => exportData(parserType)}
-          disabled={isFetching}
-          key={parserType}
-        >
-          {isFetching && <Loader />} {parserType.toUpperCase()}
-        </Button>
-      ))}
+      <Box display="flex" justifyContent="center">
+        <Text variant="lg">Choose export format:</Text>
+      </Box>
+      <Box display="flex" justifyContent="center">
+        {Parsers.map(parserType => (
+          <Box key={parserType} m={2}>
+            <Button
+              onClick={() => exportData(parserType)}
+              disabled={isFetching}
+            >
+              {isFetching && <Loader />} {parserType.toUpperCase()}
+            </Button>
+          </Box>
+        ))}
+      </Box>
     </Box>
   );
 };
