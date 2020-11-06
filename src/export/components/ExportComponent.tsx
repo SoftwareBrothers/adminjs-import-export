@@ -1,12 +1,13 @@
 import React, { FC, useState } from 'react';
-import { useNotice, ActionProps, ApiClient } from 'admin-bro';
+import { ActionProps, ApiClient, useNotice } from 'admin-bro';
 import { Box, Button, Loader } from '@admin-bro/design-system';
-import { Parsers } from '../parsers/export.parser';
 import { saveAs } from 'file-saver';
 import format from 'date-fns/format';
+import { Parsers, ParserType } from '../parsers/parser.type';
 
-const mimeTypes: Record<keyof typeof Parsers, string> = {
+const mimeTypes: Record<ParserType, string> = {
   json: 'application/json',
+  csv: 'text/csv',
 };
 
 const getFileName = extension =>
@@ -20,7 +21,7 @@ const ExportComponent: FC<ActionProps> = ({ resource }) => {
     return <Loader />;
   }
 
-  const exportData = async (type: keyof typeof Parsers) => {
+  const exportData = async (type: ParserType) => {
     setFetching(true);
     try {
       const {
@@ -45,9 +46,15 @@ const ExportComponent: FC<ActionProps> = ({ resource }) => {
 
   return (
     <Box>
-      <Button onClick={() => exportData('json')} disabled={isFetching}>
-        {isFetching && <Loader />} JSON
-      </Button>
+      {Parsers.map(parserType => (
+        <Button
+          onClick={() => exportData(parserType)}
+          disabled={isFetching}
+          key={parserType}
+        >
+          {isFetching && <Loader />} {parserType.toUpperCase()}
+        </Button>
+      ))}
     </Box>
   );
 };
