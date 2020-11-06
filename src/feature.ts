@@ -1,10 +1,12 @@
-import { ValidationError, buildFeature, FeatureType, Filter } from 'admin-bro';
+import { buildFeature, FeatureType, Filter, ValidationError } from 'admin-bro';
 import { bundleExportComponents } from './export/components/bundleExportComponents';
-import { Parsers } from './parsers';
+import { Importer, Parsers } from './parsers';
 import { bundleImportComponents } from './import/components/bundleImportComponents';
 import fs from 'fs';
 import util from 'util';
 import { jsonImporter } from './import/parsers/json.importer';
+import { csvImporter } from './import/parsers/csv.importer';
+import { xmlImporter } from './import/parsers/xml.importer';
 
 const readFile = util.promisify(fs.readFile);
 
@@ -38,16 +40,18 @@ const feature = (): FeatureType => {
       import: {
         handler: async (request, response, context) => {
           if (request.method === 'post') {
-            const filePath = request.payload?.file.path;
+            const file = request.payload?.file;
+            const filePath = file?.path;
 
             if (!filePath) {
               throw new ValidationError({
                 file: { message: 'No file uploaded' },
               });
             }
+            const importer = getImporterByFileName(file.name);
 
-            const file = await readFile(filePath);
-            await jsonImporter(file.toString(), context.resource);
+            const fileContent = await readFile(filePath);
+            await importer(fileContent.toString(), context.resource);
           }
           return {};
         },
@@ -56,6 +60,19 @@ const feature = (): FeatureType => {
       },
     },
   });
+};
+
+export const getImporterByFileName = (fileName: string): Importer => {
+  if (fileName.includes('.json')) {
+    return jsonImporter;
+  }
+  if (fileName.includes('.csv')) {
+    return csvImporter;
+  }
+  if (fileName.includes('.xml')) {
+    return xmlImporter;
+  }
+  throw new Error('No parser found');
 };
 
 export default feature;

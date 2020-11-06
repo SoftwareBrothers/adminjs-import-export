@@ -29,6 +29,7 @@
     "@commitlint/config-conventional": "^11.0.0",
     "@semantic-release/git": "^9.0.0",
     "@types/jest": "^26.0.15",
+    "@types/json2csv": "^5.0.1",
     "@typescript-eslint/eslint-plugin": "^4.6.0",
     "@typescript-eslint/parser": "^4.6.0",
     "admin-bro": "^3.3.1",
@@ -50,6 +51,7 @@
   "dependencies": {
     "@admin-bro/mongoose": "^1.1.0-beta.3",
     "@types/mongoose": "^5.7.37",
+    "csvtojson": "^2.0.10",
     "file-saver": "^2.0.2",
     "json2csv": "^5.0.3",
     "mongoose": "^5.10.11",
