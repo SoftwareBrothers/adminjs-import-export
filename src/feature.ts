@@ -18,6 +18,7 @@ const feature = (): FeatureType => {
               }
             );
             const parsedData = parser(records);
+
             return {
               exportedData: parsedData,
             };
