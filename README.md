@@ -1,6 +1,6 @@
 # Feature for AdminBro
 
-This is feature template.
+This is feature that allows importing and exporting resources.
 
 ## AdminBro
 
