@@ -1,11 +1,11 @@
 import { BaseRecord, BaseResource } from 'admin-bro';
-import { ExporterType } from './export/parsers/exporter.type';
-import { jsonExporter } from './export/parsers/json.exporter';
-import { jsonImporter } from './import/parsers/json.importer';
-import { csvExporter } from './export/parsers/csv.exporter';
-import { xmlExporter } from './export/parsers/xml.exporter';
-import { csvImporter } from './import/parsers/csv.importer';
-import { xmlImporter } from './import/parsers/xml.importer';
+import { ExporterType } from './exporter.type';
+import { jsonExporter } from './modules/json/json.exporter';
+import { jsonImporter } from './modules/json/json.importer';
+import { csvExporter } from './modules/csv/csv.exporter';
+import { xmlExporter } from './modules/xml/xml.exporter';
+import { csvImporter } from './modules/csv/csv.importer';
+import { xmlImporter } from './modules/xml/xml.importer';
 
 export type Exporter = (records: BaseRecord[]) => string;
 export type Importer = (

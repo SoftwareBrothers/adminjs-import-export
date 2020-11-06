@@ -3,7 +3,7 @@ import { ActionProps, ApiClient, useNotice } from 'admin-bro';
 import { Box, Button, Loader, Text } from '@admin-bro/design-system';
 import { saveAs } from 'file-saver';
 import format from 'date-fns/format';
-import { Exporters, ExporterType } from '../parsers/exporter.type';
+import { Exporters, ExporterType } from '../exporter.type';
 
 const mimeTypes: Record<ExporterType, string> = {
   json: 'application/json',

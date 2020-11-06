@@ -1,17 +1,15 @@
 import { buildFeature, FeatureType, Filter, ValidationError } from 'admin-bro';
-import { bundleExportComponents } from './export/components/bundleExportComponents';
 import { Importer, Parsers } from './parsers';
-import { bundleImportComponents } from './import/components/bundleImportComponents';
 import fs from 'fs';
 import util from 'util';
-import { jsonImporter } from './import/parsers/json.importer';
-import { csvImporter } from './import/parsers/csv.importer';
-import { xmlImporter } from './import/parsers/xml.importer';
+import { jsonImporter } from './modules/json/json.importer';
+import { csvImporter } from './modules/csv/csv.importer';
+import { xmlImporter } from './modules/xml/xml.importer';
+import { bundleComponents } from './components/bundleComponents';
 
 const readFile = util.promisify(fs.readFile);
 
-const { EXPORT_COMPONENT } = bundleExportComponents();
-const { IMPORT_COMPONENT } = bundleImportComponents();
+const { EXPORT_COMPONENT, IMPORT_COMPONENT } = bundleComponents();
 
 const feature = (): FeatureType => {
   return buildFeature({
