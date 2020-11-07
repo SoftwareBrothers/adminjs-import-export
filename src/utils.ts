@@ -1,8 +1,10 @@
 import { BaseRecord, BaseResource } from 'admin-bro';
-import { Importer } from '../parsers';
-import { jsonImporter } from './json/json.importer';
-import { csvImporter } from './csv/csv.importer';
-import { xmlImporter } from './xml/xml.importer';
+import { Importer } from './parsers';
+import { jsonImporter } from './modules/json/json.importer';
+import { csvImporter } from './modules/csv/csv.importer';
+import { xmlImporter } from './modules/xml/xml.importer';
+import { ExporterType } from './exporter.type';
+import format from 'date-fns/format';
 
 export const saveRecords = async (
   records: Record<string, any>[],
@@ -32,3 +34,12 @@ export const getImporterByFileName = (fileName: string): Importer => {
   }
   throw new Error('No parser found');
 };
+
+export const mimeTypes: Record<ExporterType, string> = {
+  json: 'application/json',
+  csv: 'text/csv',
+  xml: 'text/xml',
+};
+
+export const getExportedFileName = (extension: string) =>
+  `export-${format(Date.now(), 'yyyy-MM-dd_HH-mm')}.${extension}`;

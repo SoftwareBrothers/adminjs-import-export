@@ -3,7 +3,7 @@ import { Parsers } from './parsers';
 import fs from 'fs';
 import util from 'util';
 import { bundleComponents } from './components/bundleComponents';
-import { getImporterByFileName } from './modules/utils';
+import { getImporterByFileName } from './utils';
 
 const readFile = util.promisify(fs.readFile);
 
