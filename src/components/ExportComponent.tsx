@@ -41,6 +41,10 @@ const ExportComponent: FC<ActionProps> = ({ resource }) => {
     setFetching(false);
   };
 
+  if (isFetching) {
+    return <Loader />;
+  }
+
   return (
     <Box>
       <Box display="flex" justifyContent="center">
@@ -53,7 +57,7 @@ const ExportComponent: FC<ActionProps> = ({ resource }) => {
               onClick={() => exportData(parserType)}
               disabled={isFetching}
             >
-              {isFetching && <Loader />} {parserType.toUpperCase()}
+              {parserType.toUpperCase()}
             </Button>
           </Box>
         ))}

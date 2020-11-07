@@ -34,6 +34,10 @@ const ImportComponent: FC<ActionProps> = ({ resource }) => {
     setFetching(false);
   };
 
+  if (isFetching) {
+    return <Loader />;
+  }
+
   return (
     <Box
       margin="auto"
@@ -45,7 +49,7 @@ const ImportComponent: FC<ActionProps> = ({ resource }) => {
       <DropZone files={[]} onChange={onUpload} multiple={false} />
       <Box display="flex" justifyContent="center" m={10}>
         <Button onClick={onSubmit} disabled={!file || isFetching}>
-          {isFetching && <Loader />} Upload
+          Upload
         </Button>
       </Box>
     </Box>
