@@ -32,6 +32,8 @@ jobs:
         run: yarn build
       - name: Test
         run: yarn test
+      - name: Test
+        run: yarn config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
       - name: Release
         run: yarn release
 
