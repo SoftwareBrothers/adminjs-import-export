@@ -8,6 +8,7 @@ import { csvImporter } from './modules/csv/csv.importer';
 import { xmlImporter } from './modules/xml/xml.importer';
 
 export type Exporter = (records: BaseRecord[]) => string;
+
 export type Importer = (
   records: string,
   resource: BaseResource

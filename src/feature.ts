@@ -1,11 +1,9 @@
 import { buildFeature, FeatureType, Filter, ValidationError } from 'admin-bro';
-import { Importer, Parsers } from './parsers';
+import { Parsers } from './parsers';
 import fs from 'fs';
 import util from 'util';
-import { jsonImporter } from './modules/json/json.importer';
-import { csvImporter } from './modules/csv/csv.importer';
-import { xmlImporter } from './modules/xml/xml.importer';
 import { bundleComponents } from './components/bundleComponents';
+import { getImporterByFileName } from './modules/utils';
 
 const readFile = util.promisify(fs.readFile);
 
@@ -58,19 +56,6 @@ const feature = (): FeatureType => {
       },
     },
   });
-};
-
-export const getImporterByFileName = (fileName: string): Importer => {
-  if (fileName.includes('.json')) {
-    return jsonImporter;
-  }
-  if (fileName.includes('.csv')) {
-    return csvImporter;
-  }
-  if (fileName.includes('.xml')) {
-    return xmlImporter;
-  }
-  throw new Error('No parser found');
 };
 
 export default feature;
