@@ -3,7 +3,16 @@ import { ActionProps, ApiClient, useNotice } from 'admin-bro';
 import { Box, Button, Loader, Text } from '@admin-bro/design-system';
 import { saveAs } from 'file-saver';
 import { Exporters, ExporterType } from '../exporter.type';
-import { getExportedFileName, mimeTypes } from '../utils';
+import format from 'date-fns/format';
+
+export const mimeTypes: Record<ExporterType, string> = {
+  json: 'application/json',
+  csv: 'text/csv',
+  xml: 'text/xml',
+};
+
+export const getExportedFileName = (extension: string) =>
+  `export-${format(Date.now(), 'yyyy-MM-dd_HH-mm')}.${extension}`;
 
 const ExportComponent: FC<ActionProps> = ({ resource }) => {
   const [isFetching, setFetching] = useState<boolean>();

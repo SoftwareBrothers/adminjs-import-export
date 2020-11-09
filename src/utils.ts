@@ -34,12 +34,3 @@ export const getImporterByFileName = (fileName: string): Importer => {
   }
   throw new Error('No parser found');
 };
-
-export const mimeTypes: Record<ExporterType, string> = {
-  json: 'application/json',
-  csv: 'text/csv',
-  xml: 'text/xml',
-};
-
-export const getExportedFileName = (extension: string) =>
-  `export-${format(Date.now(), 'yyyy-MM-dd_HH-mm')}.${extension}`;
