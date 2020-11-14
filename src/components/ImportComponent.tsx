@@ -1,6 +1,12 @@
 import React, { FC, useState } from 'react';
 import { ActionProps, ApiClient, useNotice } from 'admin-bro';
-import { Loader, Box, Button, DropZone } from '@admin-bro/design-system';
+import {
+  DropZoneItem,
+  Loader,
+  Box,
+  Button,
+  DropZone,
+} from '@admin-bro/design-system';
 
 const ImportComponent: FC<ActionProps> = ({ resource }) => {
   const [file, setFile] = useState<null | File>(null);
@@ -47,6 +53,13 @@ const ImportComponent: FC<ActionProps> = ({ resource }) => {
       flexDirection="column"
     >
       <DropZone files={[]} onChange={onUpload} multiple={false} />
+      {file && (
+        <DropZoneItem
+          file={file}
+          filename={file.name}
+          onRemove={() => setFile(null)}
+        />
+      )}
       <Box display="flex" justifyContent="center" m={10}>
         <Button onClick={onSubmit} disabled={!file || isFetching}>
           Upload
