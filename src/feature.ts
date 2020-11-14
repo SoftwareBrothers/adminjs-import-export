@@ -1,4 +1,4 @@
-import { buildFeature, FeatureType, Filter, ValidationError } from 'admin-bro';
+import { buildFeature, FeatureType } from 'admin-bro';
 import { Parsers } from './parsers';
 import fs from 'fs';
 import util from 'util';
