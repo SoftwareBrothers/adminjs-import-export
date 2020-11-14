@@ -6,7 +6,11 @@ import { createUserResource } from './resources/user/user.resource';
 import mongoose from 'mongoose';
 
 const setupAdmin = async (app: Express): Promise<void> => {
-  await mongoose.connect('mongodb://localhost/admin-bro-feature');
+  await mongoose.connect('mongodb://localhost/admin-bro-feature', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+
   AdminBro.registerAdapter(MongooseAdapter);
   const adminBro = new AdminBro({
     resources: [createUserResource()],
