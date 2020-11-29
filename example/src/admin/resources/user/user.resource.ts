@@ -1,6 +1,6 @@
 import { ResourceWithOptions } from 'admin-bro';
 import { User } from './user.entity';
-import feature from '../../../../../src/index';
+import importExportFeature from '../../../../../src/index';
 
 export const createUserResource = (): ResourceWithOptions => ({
   resource: User,
@@ -10,5 +10,5 @@ export const createUserResource = (): ResourceWithOptions => ({
       name: 'Users',
     },
   },
-  features: [feature()],
+  features: [importExportFeature()],
 });

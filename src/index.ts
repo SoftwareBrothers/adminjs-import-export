@@ -4,8 +4,8 @@
  * @section modules
  */
 
-import feature from './feature';
+import importExportFeature from './importExportFeature';
 
 export * from './components/bundleComponents';
 
-export default feature;
+export default importExportFeature;

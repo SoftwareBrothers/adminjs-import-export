@@ -6,7 +6,7 @@ import { importHandler } from './import.handler';
 
 const { EXPORT_COMPONENT, IMPORT_COMPONENT } = bundleComponents();
 
-const feature = (): FeatureType => {
+const importExportFeature = (): FeatureType => {
   return buildFeature({
     actions: {
       export: {
@@ -23,4 +23,4 @@ const feature = (): FeatureType => {
   });
 };
 
-export default feature;
+export default importExportFeature;
