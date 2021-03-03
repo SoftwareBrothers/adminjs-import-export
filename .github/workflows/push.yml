@@ -32,9 +32,12 @@ jobs:
         run: yarn build
       - name: Test
         run: yarn test
-      - name: Authenticate with NPM Token
-        run: yarn config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
       - name: Release
+        if: github.event_name == 'push'
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: yarn release
 
   notify:
