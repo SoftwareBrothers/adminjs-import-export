@@ -1,4 +1,4 @@
-import { buildFeature, FeatureType } from 'admin-bro';
+import { buildFeature, FeatureType } from 'adminjs';
 import { bundleComponents } from './components/bundleComponents';
 import { postActionHandler } from './utils';
 import { exportHandler } from './export.handler';

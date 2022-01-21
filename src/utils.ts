@@ -7,7 +7,7 @@ import {
   BaseResource,
   Filter,
   ValidationError,
-} from 'admin-bro';
+} from 'adminjs';
 import { Importer } from './parsers';
 import { jsonImporter } from './modules/json/json.importer';
 import { csvImporter } from './modules/csv/csv.importer';

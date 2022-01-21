@@ -1,13 +1,13 @@
-import AdminBro from 'admin-bro';
+import AdminJS from 'adminjs';
 
 export const bundleComponents = (): {
   EXPORT_COMPONENT: string;
   IMPORT_COMPONENT: string;
 } => {
-  const EXPORT_COMPONENT = AdminBro.bundle(
+  const EXPORT_COMPONENT = AdminJS.bundle(
     '../../src/components/ExportComponent'
   );
-  const IMPORT_COMPONENT = AdminBro.bundle(
+  const IMPORT_COMPONENT = AdminJS.bundle(
     '../../src/components/ImportComponent'
   );
 

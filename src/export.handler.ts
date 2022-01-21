@@ -1,6 +1,6 @@
 import { Parsers } from './parsers';
 import { getRecords } from './utils';
-import { ActionHandler, ActionResponse } from 'admin-bro';
+import { ActionHandler, ActionResponse } from 'adminjs';
 
 export const exportHandler: ActionHandler<ActionResponse> = async (
   request,

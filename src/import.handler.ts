@@ -1,5 +1,5 @@
 import { getFileFromRequest, getImporterByFileName } from './utils';
-import { ActionHandler, ActionResponse } from 'admin-bro';
+import { ActionHandler, ActionResponse } from 'adminjs';
 import util from 'util';
 import fs from 'fs';
 

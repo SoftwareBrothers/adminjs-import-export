@@ -1,4 +1,4 @@
-import { BaseRecord } from 'admin-bro';
+import { BaseRecord } from 'adminjs';
 import xml from 'xml';
 
 export const xmlExporter = (records: BaseRecord[]): string => {

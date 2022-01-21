@@ -1,12 +1,12 @@
 import React, { FC, useState } from 'react';
-import { ActionProps, ApiClient, useNotice } from 'admin-bro';
+import { ActionProps, ApiClient, useNotice } from 'adminjs';
 import {
   DropZoneItem,
   Loader,
   Box,
   Button,
   DropZone,
-} from '@admin-bro/design-system';
+} from '@adminjs/design-system';
 
 const ImportComponent: FC<ActionProps> = ({ resource }) => {
   const [file, setFile] = useState<null | File>(null);

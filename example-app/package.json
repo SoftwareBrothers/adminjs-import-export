@@ -1,5 +1,5 @@
 {
-  "name": "firebase-example-admin-bro",
+  "name": "adminjs-import-export-example",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -8,8 +8,9 @@
     "lint": "eslint src --ext ts"
   },
   "dependencies": {
-    "@admin-bro/design-system": "^1.7.0",
-    "admin-bro-expressjs": "^2.1.1",
+    "@adminjs/design-system": "^2.0.4",
+    "@adminjs/express": "^4.0.1",
+    "adminjs": "^5.5.1",
     "express": "^4.17.1",
     "express-formidable": "^1.2.0",
     "nodemon": "^2.0.6",

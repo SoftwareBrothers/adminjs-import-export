@@ -1,4 +1,4 @@
-import { BaseRecord, BaseResource } from 'admin-bro';
+import { BaseRecord, BaseResource } from 'adminjs';
 import { ExporterType } from './exporter.type';
 import { jsonExporter } from './modules/json/json.exporter';
 import { jsonImporter } from './modules/json/json.importer';
