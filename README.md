@@ -12,6 +12,7 @@ Or visit [AdminJS](https://github.com/SoftwareBrothers/adminjs) github page.
 
 ## Usage
 
+See: https://github.com/SoftwareBrothers/adminjs-import-export/tree/main/example-app
 
 ## License
 
