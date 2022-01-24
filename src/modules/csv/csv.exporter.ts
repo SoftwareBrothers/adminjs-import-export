@@ -1,4 +1,4 @@
-import { BaseRecord } from 'admin-bro';
+import { BaseRecord } from 'adminjs';
 import { parse } from 'json2csv';
 
 export const csvExporter = (records: BaseRecord[]): string => {

@@ -1,4 +1,4 @@
-import { ResourceWithOptions } from 'admin-bro';
+import { ResourceWithOptions } from 'adminjs';
 import { User } from './user.entity';
 import importExportFeature from '../../../../../src/index';
 

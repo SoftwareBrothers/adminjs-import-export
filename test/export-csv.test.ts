@@ -1,11 +1,11 @@
-import AdminBro from 'admin-bro';
+import AdminJS from 'adminjs';
 import importExportFeature from '../src';
 import mongoose from 'mongoose';
-import MongooseAdapter from '@admin-bro/mongoose';
+import MongooseAdapter from '@adminjs/mongoose';
 global.window = {} as any;
-import { ApiClient } from 'admin-bro';
+import { ApiClient } from 'adminjs';
 import express from 'express';
-import AdminBroExpress from 'admin-bro-expressjs';
+import AdminJSExpress from '@adminjs/express';
 import axios from 'axios';
 
 const userSchema = new mongoose.Schema({
@@ -13,11 +13,12 @@ const userSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model('User', userSchema);
-AdminBro.registerAdapter(MongooseAdapter);
+AdminJS.registerAdapter(MongooseAdapter);
 
 class API extends ApiClient {
   constructor() {
     super();
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     this.client = axios.create({
       baseURL: 'localhost:3000',
@@ -27,7 +28,7 @@ class API extends ApiClient {
 
 describe('CSV Export', () => {
   it.skip('should assert true is ok', async function () {
-    const adminBro = new AdminBro({
+    const adminJs = new AdminJS({
       resources: [
         {
           resource: User,
@@ -42,9 +43,9 @@ describe('CSV Export', () => {
       ],
     });
 
-    const router = await AdminBroExpress.buildRouter(adminBro);
+    const router = await AdminJSExpress.buildRouter(adminJs);
     const app = express();
-    app.use(adminBro.options.rootPath, router);
+    app.use(adminJs.options.rootPath, router);
     app.listen(3000);
     const apiClient = new API();
     const data = await apiClient.resourceAction({

@@ -39,7 +39,7 @@ build/Release
 
 # Dependency directories
 node_modules/
-example/node_modules/
+example-app/node_modules/
 jspm_packages/
 
 # Snowpack dependency directory (https://snowpack.dev/)
@@ -123,5 +123,5 @@ dist
 /build
 /lib
 /types
-.adminbro
-example/.adminbro
+.adminjs
+example-app/.adminjs

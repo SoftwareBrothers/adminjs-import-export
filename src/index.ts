@@ -1,5 +1,5 @@
 /**
- * @module @admin-bro/import-export
+ * @module @adminjs/import-export
  * @subcategory Features
  * @section modules
  */
