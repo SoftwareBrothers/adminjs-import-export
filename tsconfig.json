@@ -12,12 +12,12 @@
     "noImplicitThis": true,
     "moduleResolution": "node",
     "module": "commonjs",
-    "baseUrl": "./",
+    "baseUrl": ".",
     "outDir": "lib",
     "declarationDir": "types",
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "skipDefaultLibCheck": true
   },
-  "exclude": ["test", "lib", "types", "example"]
+  "exclude": ["test", "lib", "types", "example-app"]
 }
