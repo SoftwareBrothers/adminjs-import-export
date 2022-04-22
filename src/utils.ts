@@ -67,7 +67,17 @@ export const getFileFromRequest = (request: ActionRequest): File => {
 export const getRecords = async (
   context: ActionContext
 ): Promise<BaseRecord[]> => {
+  const idProperty = context.resource
+    .properties()
+    .find(p => p.isId())
+    ?.name?.();
+  const titleProperty = context.resource.decorate().titleProperty()?.name?.();
+
   return context.resource.find(new Filter({}, context.resource), {
     limit: Number.MAX_SAFE_INTEGER,
+    sort: {
+      sortBy: idProperty ?? titleProperty,
+      direction: 'asc',
+    },
   });
 };
