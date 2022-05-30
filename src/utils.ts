@@ -6,6 +6,7 @@ import {
   BaseRecord,
   BaseResource,
   Filter,
+  UploadedFile,
   ValidationError,
 } from 'adminjs';
 import { Importer } from './parsers';
@@ -52,7 +53,7 @@ export const postActionHandler = (
   return handler(request, response, context);
 };
 
-export const getFileFromRequest = (request: ActionRequest): File => {
+export const getFileFromRequest = (request: ActionRequest): UploadedFile => {
   const file = request.payload?.file;
 
   if (!file?.path) {

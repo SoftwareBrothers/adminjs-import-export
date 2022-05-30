@@ -11,10 +11,11 @@ export const importHandler: ActionHandler<ActionResponse> = async (
   context
 ) => {
   const file = getFileFromRequest(request);
-  const importer = getImporterByFileName(file.name);
-
-  const fileContent = await readFile(file.name);
-  await importer(fileContent.toString(), context.resource);
+  if (file.name !== null) {
+    const importer = getImporterByFileName(file.name);
+    const fileContent = await readFile(file.path);
+    await importer(fileContent.toString(), context.resource);
+  }
 
   return {};
 };
