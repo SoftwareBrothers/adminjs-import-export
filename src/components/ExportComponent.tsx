@@ -11,7 +11,7 @@ export const mimeTypes: Record<ExporterType, string> = {
   xml: 'text/xml',
 };
 
-export const getExportedFileName = (extension: string) =>
+export const getExportedFileName = (extension: string): string =>
   `export-${format(Date.now(), 'yyyy-MM-dd_HH-mm')}.${extension}`;
 
 const ExportComponent: FC<ActionProps> = ({ resource }) => {
