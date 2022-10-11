@@ -8,10 +8,10 @@ import {
   Filter,
   ValidationError,
 } from 'adminjs';
-import { Importer } from './parsers';
-import { jsonImporter } from './modules/json/json.importer';
 import { csvImporter } from './modules/csv/csv.importer';
+import { jsonImporter } from './modules/json/json.importer';
 import { xmlImporter } from './modules/xml/xml.importer';
+import { Importer } from './parsers';
 
 export const saveRecords = async (
   records: Record<string, any>[],
@@ -52,7 +52,7 @@ export const postActionHandler = (
   return handler(request, response, context);
 };
 
-export const getFileFromRequest = (request: ActionRequest): File => {
+export const getFileFromRequest = (request: ActionRequest) => {
   const file = request.payload?.file;
 
   if (!file?.path) {
