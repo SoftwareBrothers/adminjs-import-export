@@ -20,11 +20,11 @@
     }
   },
   "peerDependencies": {
-    "@adminjs/design-system": "^2.0.4",
-    "adminjs": ">=6.0.0"
+    "@adminjs/design-system": "^3.1.0",
+    "adminjs": "^6.0.0"
   },
   "devDependencies": {
-    "@adminjs/design-system": "^2.0.4",
+    "@adminjs/design-system": "^3.1.0",
     "@adminjs/express": "^4.0.1",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
@@ -48,7 +48,7 @@
     "express-session": "^1.17.2",
     "husky": "^4.3.0",
     "jest": "^26.6.1",
-    "prettier": "^2.1.2",
+    "prettier": "^2.7.1",
     "semantic-release": "^17.2.2",
     "ts-jest": "^26.4.3",
     "ts-node": "^9.0.0",

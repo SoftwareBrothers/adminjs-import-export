@@ -42,15 +42,15 @@ export const getImporterByFileName = (fileName: string): Importer => {
   throw new Error('No parser found');
 };
 
-export const postActionHandler = (
-  handler: ActionHandler<ActionResponse>
-): ActionHandler<ActionResponse> => async (request, response, context) => {
-  if (request.method !== 'post') {
-    return {};
-  }
+export const postActionHandler =
+  (handler: ActionHandler<ActionResponse>): ActionHandler<ActionResponse> =>
+  async (request, response, context) => {
+    if (request.method !== 'post') {
+      return {};
+    }
 
-  return handler(request, response, context);
-};
+    return handler(request, response, context);
+  };
 
 export const getFileFromRequest = (request: ActionRequest) => {
   const file = request.payload?.file;
