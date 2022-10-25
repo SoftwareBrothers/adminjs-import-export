@@ -1,6 +1,6 @@
 {
   "name": "@adminjs/import-export",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "main": "lib/index.js",
   "types": "types/index.d.ts",
   "private": false,
