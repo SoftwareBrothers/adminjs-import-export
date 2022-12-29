@@ -4,7 +4,7 @@
   "main": "lib/index.js",
   "types": "types/index.d.ts",
   "private": false,
-  "repository": "git@github.com:SoftwareBrothers/adminjs-import-export.git",
+  "repository": "git@github.com/MenahemOwlytics/adminjs-import-export.git",
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
     "release": "semantic-release",
