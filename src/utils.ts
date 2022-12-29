@@ -74,11 +74,17 @@ export const getRecords = async (
     ?.name?.();
   const titleProperty = context.resource.decorate().titleProperty()?.name?.();
 
-  return context.resource.find(new Filter(request?.query?.filter ? JSON.stringify(request?.query?.filter) : {}, context.resource), {
-    limit: Number.MAX_SAFE_INTEGER,
-    sort: {
-      sortBy: idProperty ?? titleProperty,
-      direction: 'asc',
-    },
-  });
+  return context.resource.find(
+    new Filter(
+      request?.query?.filter ? JSON.stringify(request?.query?.filter) : {},
+      context.resource
+    ),
+    {
+      limit: Number.MAX_SAFE_INTEGER,
+      sort: {
+        sortBy: idProperty ?? titleProperty,
+        direction: 'asc',
+      },
+    }
+  );
 };

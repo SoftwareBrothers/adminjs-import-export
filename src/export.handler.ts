@@ -9,7 +9,7 @@ export const exportHandler: ActionHandler<ActionResponse> = async (
 ) => {
   const parser = Parsers[request.query?.type ?? 'json'].export;
 
-  const records = await getRecords(context,request);
+  const records = await getRecords(context, request);
   const parsedData = parser(records);
 
   return {
