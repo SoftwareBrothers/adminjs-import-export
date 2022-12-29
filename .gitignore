@@ -120,6 +120,8 @@ dist
 .DS_store
 
 # build files
+/build
+/lib
 /types
 .adminjs
 example-app/.adminjs
