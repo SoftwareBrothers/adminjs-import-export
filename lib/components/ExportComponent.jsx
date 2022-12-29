@@ -35,7 +35,7 @@ const ExportComponent = ({ resource }) => {
                 actionName: 'export',
                 params: {
                     type,
-                    filter
+                    filter,
                 },
             });
             const blob = new Blob([exportedData], { type: exports.mimeTypes[type] });

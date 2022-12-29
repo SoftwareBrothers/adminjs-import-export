@@ -76,7 +76,7 @@ export const getRecords = async (
 
   return context.resource.find(
     new Filter(
-      request?.query?.filter ? JSON.stringify(request?.query?.filter) : {},
+      request?.query?.filter ? JSON.parse(request?.query?.filter) : {},
       context.resource
     ),
     {
