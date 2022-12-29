@@ -13,11 +13,13 @@ const importExportFeature = (): FeatureType => {
         handler: postActionHandler(exportHandler),
         component: EXPORT_COMPONENT,
         actionType: 'resource',
+        showFilter: true
       },
       import: {
         handler: postActionHandler(importHandler),
         component: IMPORT_COMPONENT,
         actionType: 'resource',
+        showFilter: true
       },
     },
   });

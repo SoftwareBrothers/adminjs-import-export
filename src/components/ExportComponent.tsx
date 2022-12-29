@@ -4,6 +4,8 @@ import { Box, Button, Loader, Text } from '@adminjs/design-system';
 import { saveAs } from 'file-saver';
 import { Exporters, ExporterType } from '../exporter.type';
 import format from 'date-fns/format';
+import { useSearchParams } from "react-router-dom";
+
 
 export const mimeTypes: Record<ExporterType, string> = {
   json: 'application/json',
@@ -15,6 +17,15 @@ export const getExportedFileName = (extension: string) =>
   `export-${format(Date.now(), 'yyyy-MM-dd_HH-mm')}.${extension}`;
 
 const ExportComponent: FC<ActionProps> = ({ resource }) => {
+  const filter: Record<string, string> = {}
+  const query = new URLSearchParams(location.search)
+  for (const entry of query.entries()) {
+    const [key, value] = entry
+    if (key.match('filters.')) {
+      filter[key.replace('filters.', '')] = value
+    }
+  }
+
   const [isFetching, setFetching] = useState<boolean>();
   const sendNotice = useNotice();
 
@@ -29,6 +40,7 @@ const ExportComponent: FC<ActionProps> = ({ resource }) => {
         actionName: 'export',
         params: {
           type,
+          filter
         },
       });
 
