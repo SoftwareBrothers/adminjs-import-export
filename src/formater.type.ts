@@ -1,4 +1,4 @@
-export interface Format {
+export interface Column {
   name: string;
   key?: string;
   callback?: (value: string) => string;
