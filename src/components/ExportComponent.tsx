@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 import { ActionProps, ApiClient, useNotice } from 'adminjs';
 import { Box, Button, Loader, Text } from '@adminjs/design-system';
 import { saveAs } from 'file-saver';
-import { Exporters, ExporterType } from '../exporter.type.js';
+import { Exporters, ExporterType } from '../exporter.type';
 import format from 'date-fns/format';
 
 export const mimeTypes: Record<ExporterType, string> = {

@@ -1,7 +1,7 @@
 import { ActionHandler, ActionResponse } from 'adminjs';
 import fs from 'fs';
 import util from 'util';
-import { getFileFromRequest, getImporterByFileName } from './utils.js';
+import { getFileFromRequest, getImporterByFileName } from './utils';
 
 const readFile = util.promisify(fs.readFile);
 

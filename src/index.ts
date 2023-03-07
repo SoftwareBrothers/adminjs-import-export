@@ -4,8 +4,8 @@
  * @section modules
  */
 
-import importExportFeature from './importExportFeature.js';
+import importExportFeature from './importExportFeature';
 
-export * from './components/bundleComponents.js';
+export * from './components/bundleComponents';
 
 export default importExportFeature;
