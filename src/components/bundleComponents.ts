@@ -5,10 +5,10 @@ export const bundleComponents = (): {
   IMPORT_COMPONENT: string;
 } => {
   const EXPORT_COMPONENT = AdminJS.bundle(
-    '../../src/components/ExportComponent'
+    '../../src/components/ExportComponent.js'
   );
   const IMPORT_COMPONENT = AdminJS.bundle(
-    '../../src/components/ImportComponent'
+    '../../src/components/ImportComponent.js'
   );
 
   return { EXPORT_COMPONENT, IMPORT_COMPONENT };

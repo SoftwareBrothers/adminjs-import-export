@@ -1,8 +1,8 @@
 import { buildFeature, FeatureType } from 'adminjs';
-import { bundleComponents } from './components/bundleComponents';
-import { postActionHandler } from './utils';
-import { exportHandler } from './export.handler';
-import { importHandler } from './import.handler';
+import { bundleComponents } from './components/bundleComponents.js';
+import { postActionHandler } from './utils.js';
+import { exportHandler } from './export.handler.js';
+import { importHandler } from './import.handler.js';
 
 const { EXPORT_COMPONENT, IMPORT_COMPONENT } = bundleComponents();
 

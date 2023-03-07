@@ -1,5 +1,5 @@
 import AdminJS from 'adminjs';
-import importExportFeature from '../src';
+import importExportFeature from '../src/index.js';
 import mongoose from 'mongoose';
 import MongooseAdapter from '@adminjs/mongoose';
 global.window = {} as any;
@@ -27,7 +27,7 @@ class API extends ApiClient {
 }
 
 describe('CSV Export', () => {
-  it.skip('should assert true is ok', async function () {
+  it.skip('should assert true is ok', async function() {
     const adminJs = new AdminJS({
       resources: [
         {
