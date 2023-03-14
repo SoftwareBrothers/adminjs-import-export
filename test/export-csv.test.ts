@@ -27,7 +27,7 @@ class API extends ApiClient {
 }
 
 describe('CSV Export', () => {
-  it.skip('should assert true is ok', async function () {
+  it.skip('should assert true is ok', async function() {
     const adminJs = new AdminJS({
       resources: [
         {
@@ -43,7 +43,7 @@ describe('CSV Export', () => {
       ],
     });
 
-    const router = await AdminJSExpress.buildRouter(adminJs);
+    const router = AdminJSExpress.buildRouter(adminJs);
     const app = express();
     app.use(adminJs.options.rootPath, router);
     app.listen(3000);

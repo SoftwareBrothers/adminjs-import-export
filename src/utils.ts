@@ -8,10 +8,10 @@ import {
   Filter,
   ValidationError,
 } from 'adminjs';
-import { csvImporter } from './modules/csv/csv.importer';
-import { jsonImporter } from './modules/json/json.importer';
-import { xmlImporter } from './modules/xml/xml.importer';
-import { Importer } from './parsers';
+import { csvImporter } from './modules/csv/csv.importer.js';
+import { jsonImporter } from './modules/json/json.importer.js';
+import { xmlImporter } from './modules/xml/xml.importer.js';
+import { Importer } from './parsers.js';
 
 export const saveRecords = async (
   records: Record<string, any>[],

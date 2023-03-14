@@ -1,11 +1,11 @@
 import { BaseRecord, BaseResource } from 'adminjs';
-import { ExporterType } from './exporter.type';
-import { jsonExporter } from './modules/json/json.exporter';
-import { jsonImporter } from './modules/json/json.importer';
-import { csvExporter } from './modules/csv/csv.exporter';
-import { xmlExporter } from './modules/xml/xml.exporter';
-import { csvImporter } from './modules/csv/csv.importer';
-import { xmlImporter } from './modules/xml/xml.importer';
+import { ExporterType } from './exporter.type.js';
+import { jsonExporter } from './modules/json/json.exporter.js';
+import { jsonImporter } from './modules/json/json.importer.js';
+import { csvExporter } from './modules/csv/csv.exporter.js';
+import { xmlExporter } from './modules/xml/xml.exporter.js';
+import { csvImporter } from './modules/csv/csv.importer.js';
+import { xmlImporter } from './modules/xml/xml.importer.js';
 
 export type Exporter = (records: BaseRecord[]) => string;
 
