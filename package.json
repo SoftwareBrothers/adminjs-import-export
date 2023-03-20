@@ -55,12 +55,9 @@
     "typescript": "^4.0.5"
   },
   "dependencies": {
-    "@adminjs/mongoose": "^2.0.0",
-    "@types/mongoose": "^5.7.37",
     "csvtojson": "^2.0.10",
     "file-saver": "^2.0.2",
     "json2csv": "^5.0.3",
-    "mongoose": "^5.10.11",
     "xml": "^1.0.1",
     "xml2js": "^0.4.23"
   }
