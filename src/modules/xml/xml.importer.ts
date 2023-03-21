@@ -1,5 +1,6 @@
-import { Importer } from '../../parsers.js';
 import xml2js from 'xml2js';
+
+import { Importer } from '../../parsers.js';
 import { saveRecords } from '../../utils.js';
 
 export const xmlImporter: Importer = async (xmlString, resource) => {
