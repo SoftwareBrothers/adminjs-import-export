@@ -1,3 +1,3 @@
 export const Exporters = ['csv', 'json', 'xml'] as const;
 
-export type ExporterType = typeof Exporters[number];
+export type ExporterType = (typeof Exporters)[number];

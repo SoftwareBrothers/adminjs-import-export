@@ -6,6 +6,4 @@
 
 import importExportFeature from './importExportFeature';
 
-export * from './components/bundleComponents';
-
 export default importExportFeature;
