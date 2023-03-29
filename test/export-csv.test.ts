@@ -1,4 +1,4 @@
-import AdminJS from 'adminjs';
+import AdminJS, { ComponentLoader } from 'adminjs';
 import importExportFeature from '../src';
 import mongoose from 'mongoose';
 import MongooseAdapter from '@adminjs/mongoose';
@@ -11,6 +11,8 @@ import axios from 'axios';
 const userSchema = new mongoose.Schema({
   name: String,
 });
+
+const componentLoader = new ComponentLoader()
 
 const User = mongoose.model('User', userSchema);
 AdminJS.registerAdapter(MongooseAdapter);
@@ -27,7 +29,7 @@ class API extends ApiClient {
 }
 
 describe('CSV Export', () => {
-  it.skip('should assert true is ok', async function () {
+  it.skip('should assert true is ok', async function() {
     const adminJs = new AdminJS({
       resources: [
         {
@@ -38,7 +40,7 @@ describe('CSV Export', () => {
               name: 'Users',
             },
           },
-          features: [importExportFeature()],
+          features: [importExportFeature({ componentLoader })],
         },
       ],
     });
