@@ -1,17 +1,20 @@
 {
   "compilerOptions": {
-    "outDir": "./built",
-    "target": "ES2016",
-    "module": "CommonJS",
+    "jsx": "preserve",
+    "baseUrl": "./",
+    "outDir": "./dist",
+    "target": "esnext",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "esModuleInterop": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": false,
     "strictFunctionTypes": true,
     "strictBindCallApply": true,
     "noImplicitThis": true,
-    "moduleResolution": "node",
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true
   },
-  "include": ["./src/**/*", "./spec/**/*"]
+  "include": ["./src/**/*.ts", "../src/**/*"]
 }

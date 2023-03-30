@@ -1,5 +1,6 @@
 import express from 'express';
-import setupAdmin from './admin/admin';
+
+import setupAdmin from './admin/admin.js';
 
 const app = express();
 const port = 3000;
