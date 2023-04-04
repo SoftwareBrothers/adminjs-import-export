@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  adminjs-import-export:
+    container_name: adminjs-import-export
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - adminjs-import-export:/data/db
+
+volumes:
+  adminjs-import-export:

@@ -23,20 +23,21 @@
     }
   },
   "peerDependencies": {
-    "@adminjs/design-system": "^3.1.0",
-    "adminjs": "^6.0.0"
+    "@adminjs/design-system": "^4.0.0-beta-v4.8",
+    "adminjs": "^7.0.0-beta-v7.4"
   },
   "devDependencies": {
-    "@adminjs/design-system": "^4.0.0-beta-v4.1",
+    "@adminjs/design-system": "^4.0.0-beta-v4.8",
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
     "@semantic-release/git": "^10.0.1",
+    "@tiptap/pm": "^2.0.0",
     "@types/json2csv": "^5.0.3",
     "@types/xml": "^1.0.8",
     "@types/xml2js": "^0.4.11",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
-    "adminjs": "^7.0.0-beta-v7.1",
+    "adminjs": "^7.0.0-beta-v7.4",
     "date-fns": "^2.29.3",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.8.0",
@@ -52,7 +53,7 @@
   "dependencies": {
     "csvtojson": "^2.0.10",
     "file-saver": "^2.0.5",
-    "json2csv": "^5.0.3",
+    "json2csv": "^6.0.0-alpha.2",
     "xml": "^1.0.1",
     "xml2js": "^0.4.23"
   }

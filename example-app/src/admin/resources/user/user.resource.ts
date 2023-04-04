@@ -1,8 +1,12 @@
-import { ResourceWithOptions } from 'adminjs';
-import { User } from './user.entity';
-import importExportFeature from '../../../../../src/index';
+import type { ComponentLoader, ResourceWithOptions } from 'adminjs';
 
-export const createUserResource = (): ResourceWithOptions => ({
+import importExportFeature from '../../../../../src/index.js';
+
+import { User } from './user.entity.js';
+
+export const createUserResource = (
+  componentLoader: ComponentLoader
+): ResourceWithOptions => ({
   resource: User,
   options: {
     navigation: {
@@ -10,5 +14,9 @@ export const createUserResource = (): ResourceWithOptions => ({
       name: 'Users',
     },
   },
-  features: [importExportFeature()],
+  features: [
+    importExportFeature({
+      componentLoader,
+    }),
+  ],
 });
