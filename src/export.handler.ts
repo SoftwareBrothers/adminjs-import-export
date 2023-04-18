@@ -1,6 +1,7 @@
-import { Parsers } from './parsers';
-import { getRecords } from './utils';
 import { ActionHandler, ActionResponse } from 'adminjs';
+
+import { Parsers } from './parsers.js';
+import { getRecords } from './utils.js';
 
 export const exportHandler: ActionHandler<ActionResponse> = async (
   request,
