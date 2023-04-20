@@ -66,7 +66,8 @@ export const getFileFromRequest = (request: ActionRequest) => {
 };
 
 export const getRecords = async (
-  context: ActionContext
+  context: ActionContext,
+  request: ActionRequest
 ): Promise<BaseRecord[]> => {
   const idProperty = context.resource
     .properties()
@@ -74,11 +75,17 @@ export const getRecords = async (
     ?.name?.();
   const titleProperty = context.resource.decorate().titleProperty()?.name?.();
 
-  return context.resource.find(new Filter({}, context.resource), {
-    limit: Number.MAX_SAFE_INTEGER,
-    sort: {
-      sortBy: idProperty ?? titleProperty,
-      direction: 'asc',
-    },
-  });
+  return context.resource.find(
+    new Filter(
+      request?.query?.filter ? JSON.parse(request?.query?.filter) : {},
+      context.resource
+    ),
+    {
+      limit: Number.MAX_SAFE_INTEGER,
+      sort: {
+        sortBy: idProperty ?? titleProperty,
+        direction: 'asc',
+      },
+    }
+  );
 };
