@@ -11,12 +11,21 @@ export const mimeTypes: Record<ExporterType, string> = {
   xml: 'text/xml',
 };
 
+interface prevPageData {
+  hash?: string,
+  key?: string,
+  pathname?: string,
+  search?: string,
+  state?: string,
+}
+
 export const getExportedFileName = (extension: string) =>
   `export-${format(Date.now(), 'yyyy-MM-dd_HH-mm')}.${extension}`;
 
 const ExportComponent: FC<ActionProps> = ({ resource }) => {
   const filter: Record<string, string> = {};
-  const prevFilter: URLSearchParams = new URLSearchParams(JSON.parse(localStorage.getItem("prevPage") ?? "{}")?.search);
+  const prevPage: prevPageData = JSON.parse(localStorage.getItem("prevPage") ?? "{}");
+  const prevFilter: URLSearchParams = new URLSearchParams(prevPage.search);
   let query = prevFilter ?? new URLSearchParams(location.search);
   for (const entry of query.entries()) {
     const [key, value] = entry;
