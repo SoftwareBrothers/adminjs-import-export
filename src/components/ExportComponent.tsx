@@ -16,7 +16,8 @@ export const getExportedFileName = (extension: string) =>
 
 const ExportComponent: FC<ActionProps> = ({ resource }) => {
   const filter: Record<string, string> = {};
-  const query = new URLSearchParams(location.search);
+  const prevFilter: URLSearchParams = new URLSearchParams(JSON.parse(localStorage.getItem("prevPage") ?? "{}")?.search);
+  let query = prevFilter ?? new URLSearchParams(location.search);
   for (const entry of query.entries()) {
     const [key, value] = entry;
     if (key.match('filters.')) {
