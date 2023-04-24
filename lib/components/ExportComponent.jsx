@@ -16,8 +16,11 @@ exports.mimeTypes = {
 const getExportedFileName = (extension) => `export-${(0, format_1.default)(Date.now(), 'yyyy-MM-dd_HH-mm')}.${extension}`;
 exports.getExportedFileName = getExportedFileName;
 const ExportComponent = ({ resource }) => {
+    var _a;
     const filter = {};
-    const query = new URLSearchParams(location.search);
+    const prevPage = JSON.parse((_a = localStorage.getItem("prevPage")) !== null && _a !== void 0 ? _a : "{}");
+    const prevFilter = new URLSearchParams(prevPage.search);
+    let query = prevFilter !== null && prevFilter !== void 0 ? prevFilter : new URLSearchParams(location.search);
     for (const entry of query.entries()) {
         const [key, value] = entry;
         if (key.match('filters.')) {
