@@ -17,6 +17,21 @@ export const createUserResource = (
   features: [
     importExportFeature({
       componentLoader,
+      properties: {
+        import: {
+          csv: {
+            nullValue: 'null',
+            undefinedValue: 'undefined',
+          },
+          upsertById: true,
+        },
+        export: {
+          csv: {
+            nullValue: 'null',
+            undefinedValue: 'undefined',
+          },
+        },
+      },
     }),
   ],
 });
