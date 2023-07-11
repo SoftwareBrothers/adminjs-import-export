@@ -7,12 +7,17 @@ import { csvExporter } from './modules/csv/csv.exporter.js';
 import { xmlExporter } from './modules/xml/xml.exporter.js';
 import { csvImporter } from './modules/csv/csv.importer.js';
 import { xmlImporter } from './modules/xml/xml.importer.js';
+import { ImportExportFeatureOptions } from './importExportFeature.js';
 
-export type Exporter = (records: BaseRecord[]) => string;
+export type Exporter = (
+  records: BaseRecord[],
+  options: ImportExportFeatureOptions
+) => string;
 
 export type Importer = (
   records: string,
-  resource: BaseResource
+  resource: BaseResource,
+  options: ImportExportFeatureOptions
 ) => Promise<BaseRecord[]>;
 
 export const Parsers: Record<
